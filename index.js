@@ -14,7 +14,7 @@ var gh = new GitHub({
 const githubUser = 'DiginamicFormation';
 
 const config = {
-    "temp1" : 'gestion-du-transport',
+    "temp1" : 'gestion-des-transports',
     "temp2" : 'gestion-des-absences',
     "temp3" : 'gestion-des-missions',
 };
