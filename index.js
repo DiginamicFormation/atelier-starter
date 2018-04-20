@@ -15,8 +15,8 @@ const githubUser = 'DiginamicFormation';
 
 const config = {
     "temp1" : 'gestion-des-transports',
-    "temp2" : 'gestion-des-absences',
-    "temp3" : 'gestion-des-missions',
+    // "temp2" : 'gestion-des-absences',
+    //"temp3" : 'gestion-des-missions',
 };
 
 
