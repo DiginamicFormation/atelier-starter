@@ -1,0 +1,11 @@
+Le traitement de nuit traite l'ensemble des missions:
+
+* Pour les missions au statut INITIALE: 
+  * le traitement les passe au statut EN_ATTENTE_VALIDATION,
+  * envoie un mail au manager
+* Pour les missions échues le traitement:
+  * calcule les primes. 
+    * Prime = (nombre de jours travaillés)* TJM * %Prime/100 - déduction
+    * Si une nature a été modifiée au cours de la mission alors le calcule se base sur la nature qui était valide au moment de la date de début de mission.
+
+

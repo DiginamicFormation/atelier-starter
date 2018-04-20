@@ -2,8 +2,8 @@ language: node_js
 node_js:
   - "9"
 before_script:
-  - npm i -g gh
+  - npm install
 script:
-  - npm run issue:gen
+  - node index.js
 notifications:
   slack: devinstitut:xHGjwaBMNBdjKqoUBIi7ssRf#travis
