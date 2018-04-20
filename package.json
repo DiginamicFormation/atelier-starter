@@ -1,0 +1,16 @@
+{
+  "name": "atelier-java-angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "init": "npm i -g gh",
+    "issue:gen" : "node scripts/issue/genIssues.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gh": "^1.12.8",
+    "shelljs": "^0.7.8"
+  }
+}

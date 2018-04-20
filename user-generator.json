@@ -1,0 +1,24 @@
+[
+  '{{repeat(40)}}',
+  {
+    matricule: '{{objectId().substring(8,16)}}',
+    nom: '{{surname()}}',
+    prenom: '{{firstName()}}',
+    email: '{{email()}}',
+    dateNaissance: '{{date(new Date(1957, 0, 1), new Date(1994, 0, 1), "YYYY-MM-ddThh:mm:ss Z")}}',
+    sexe: '{{gender()}}',
+    adresse: '{{integer(100, 999)}} {{street()}}, {{city()}}, {{integer(100, 10000)}}',
+    password: '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',
+    photo: function (tags) {
+      if (this.sexe==='male'){
+        return 'https://randomuser.me/api/portraits/men/'+tags.integer(0, 99)+'.jpg';
+      }
+      return 'https://randomuser.me/api/portraits/women/'+tags.integer(0, 99)+'.jpg';
+    },
+    subalternes: [],
+    departement: function(tags){
+      var departements = ['DSI/DEV/Java1', 'DSI/DEV/Java2', 'DSI/DEV/PHP', 'DSI/INDUS/Linux', 'DSI/INDUS/Solaris', 'DSI/INDUS/Windows'];
+      return departements[tags.integer(0, departements.length-1)];
+    }
+  }
+]

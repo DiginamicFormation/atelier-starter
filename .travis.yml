@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "9"
+before_script:
+  - npm i -g gh
+script:
+  - npm run issue:gen
+notifications:
+  slack: devinstitut:xHGjwaBMNBdjKqoUBIi7ssRf#travis
