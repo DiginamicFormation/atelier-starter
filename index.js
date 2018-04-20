@@ -28,20 +28,19 @@ const config = {
  */
 const fs = require('fs');
 
+const allCalls = [];
+
 Object.keys(config).forEach(repo => {
     fs.readdirSync(`${config[repo]}/issues`).forEach(file => {
-        fs.readFile(`${config[repo]}/issues/${file}`, 'utf8', (err,message) => {
-            if (err) {
-                return console.log(err);
-            } else {
+        const message = fs.readFileSync(`${config[repo]}/issues/${file}`, 'utf8');
+
                 const title = file.replace('.md','');
 
-                gh.getIssues(githubUser, repo).createIssue({
-                    title : title,
-                    body: message
-                }).catch(console.log);
-
-            }
-        });
+        allCalls.push(gh.getIssues(githubUser, repo).createIssue({
+            title : title,
+            body: message
+        }));
     })
 });
+
+Promise.all(allCalls).catch(console.log)
