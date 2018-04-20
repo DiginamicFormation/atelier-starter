@@ -4,6 +4,8 @@
  * Pré-requis :
  *  Configurer une variable d'environnement GITHUB_TOKEN
  *
+ *  A cause à des problèmes de limite GITHUB, effectuer un dépôt à la fois.
+ *
  */
 const GitHub = require('github-api');
 var gh = new GitHub({
