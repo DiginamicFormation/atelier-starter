@@ -5,7 +5,7 @@
  *  Configurer une variable d'environnement GITHUB_TOKEN
  *
  */
-
+const GitHub = require('github-api');
 var gh = new GitHub({
     // variable d'environnement GITHUB_TOKEN à configurer dans Travis
     token: process.env.GITHUB_TOKEN
@@ -27,7 +27,6 @@ const config = {
  *
  */
 const fs = require('fs');
-const GitHub = require('github-api');
 
 Object.keys(config).forEach(repo => {
     fs.readdirSync(`${config[repo]}/issues`).forEach(file => {
