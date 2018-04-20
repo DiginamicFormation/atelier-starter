@@ -3,25 +3,17 @@
 
 # Prérequis
 
-* Avoir installé Node-GH :
+* Configurer une variable d'environnement `GITHUB_TOKEN`.
 
-```
-npm i -g gh
-```
-
-* Installé les dépendances
-
+* Installer les dépendances.
 ```
 npm i
 ```
 
-# Configuration
-
-Consulter le fichier _scripts/config.js_.
-
+* Configurer le fichier `index.js`.
 
 # Générer les issues
 
 ```
-npm run issue:gen
+node index.js
 ```
