@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/DevInstitut/atelier-spring-angular.svg?branch=master)](https://travis-ci.org/DevInstitut/atelier-spring-angular)
+
 # Prérequis
 
 * Avoir installé Node-GH :
