@@ -3,14 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "init": "npm i -g gh",
-    "issue:gen" : "node scripts/issue/genIssues.js"
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "gh": "^1.12.8",
-    "shelljs": "^0.7.8"
+    "express": "^4.16.3",
+    "github-api": "^3.0.0"
   }
 }
