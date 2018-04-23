@@ -22,6 +22,7 @@ exports.deleteRepos = (gh, githubUser, config) => {
 
     orga.getRepos()
         .then(repositories => {
+            console.log("list repos", repositories)
             return repositories.filter(r => Object.keys(config).some(c => r.name.includes(c)));
         })
         .then(reposToDelete => {
