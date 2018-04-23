@@ -9,7 +9,7 @@ const actionRepo =(action, gh, githubUser, config) => {
         const orga = gh.getOrganization(githubUser);
 
         // debug
-        console.log('orga[action]', orga[action]);
+        console.log('DEBUG','orga', orga);
 
         allCalls.push(orga[action]({ name:`${repoName}-front`}));
         allCalls.push(orga[action]({ name:`${repoName}-back`}));
