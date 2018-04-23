@@ -1,5 +1,4 @@
-
-[![Build Status](https://travis-ci.org/DevInstitut/atelier-spring-angular.svg?branch=master)](https://travis-ci.org/DevInstitut/atelier-spring-angular)
+[![Build Status](https://travis-ci.org/DiginamicFormation/atelier-starter.svg?branch=master)](https://travis-ci.org/DiginamicFormation/atelier-starter)
 
 # Prérequis
 
@@ -10,12 +9,6 @@
 npm i
 ```
 
-* Configurer le fichier `config.js`.
+* Configurer le fichier `index.js`.
 
-* Personnaliser l'exécution via `.travis.yml`
-
-```yaml
-script:
-  - npm run repos
-  - npm run issues
-```
+* Git Push, Travis fera le reste.

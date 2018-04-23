@@ -6,4 +6,4 @@ before_script:
 script:
   - node index.js
 notifications:
-  slack: devinstitut:xHGjwaBMNBdjKqoUBIi7ssRf#travis
+  slack: diginamic:nIQwPkWk2zfq2fjtzxMWhuBD#travis-atelier
