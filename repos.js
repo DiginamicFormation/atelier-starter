@@ -17,11 +17,11 @@ const actionRepo =(action, gh, githubUser, config) => {
 };
 
 exports.genRepos = (gh, githubUser, config) => {
-    return actionRepo('createRepo')
+    return actionRepo('createRepo', gh, githubUser, config);
 };
 
 exports.deleteRepos = (gh, githubUser, config) => {
-    return actionRepo('deleteRepo')
+    return actionRepo('deleteRepo', gh, githubUser, config);
 };
 
 
