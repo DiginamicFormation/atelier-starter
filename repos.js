@@ -22,14 +22,15 @@ exports.deleteRepos = (gh, githubUser, config) => {
 
     orga.getRepos()
         .then(repositories => {
-            console.log("list repos", repositories)
+            console.log("list repos", repositories);
             return repositories.filter(r => Object.keys(config).some(c => r.name.includes(c)));
         })
         .then(reposToDelete => {
-            reposToDelete.forEach(r => {
+           /* reposToDelete.forEach(r => {
                 allCalls.push(orga.deleteRepo({ name:`${r}-front`}));
                 allCalls.push(orga.deleteRepo({ name:`${r}-back`}));
             })
+            */
         });
 
     return Promise.all(allCalls);
