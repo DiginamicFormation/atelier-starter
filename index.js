@@ -21,7 +21,7 @@ const githubUser = 'callOfDTA';
 const config = {
     "gestion-des-transports" : 'gestion-des-transports',
     "gestion-des-absences" : 'gestion-des-absences',
-    "gestion-des-missions" : 'gestion-des-missions',
+    "gestion-des-mission" : 'gestion-des-missions',
 };
 
 const GitHub = require('github-api');

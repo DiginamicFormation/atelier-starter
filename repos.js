@@ -3,7 +3,7 @@ exports.genRepos = (gh, githubUser, config) => {
 
     Object.keys(config).forEach(repoName => {
 
-        console.log(`** dépôts : ${repoName}-front et ${repoName}-back`);
+        console.log(`** création dépôts : ${repoName}-front et ${repoName}-back`);
 
         const orga = gh.getOrganization(githubUser);
 
@@ -14,6 +14,7 @@ exports.genRepos = (gh, githubUser, config) => {
     return Promise.all(allCalls);
 
 };
+
 exports.deleteRepos = (gh, githubUser, config) => {
 
     const allCalls = [];
@@ -25,14 +26,12 @@ exports.deleteRepos = (gh, githubUser, config) => {
             return response.data.filter(r => Object.keys(config).some(c => r.name.includes(c)));
         })
         .then(reposToDelete => {
-
-            reposToDelete.forEach(r => console.log('deleting', r.name));
-
-           /* reposToDelete.forEach(r => {
-                allCalls.push(orga.deleteRepo({ name:`${r}-front`}));
-                allCalls.push(orga.deleteRepo({ name:`${r}-back`}));
+            reposToDelete.forEach(r => {
+                console.log('** Suppression du dépôt', r.name)
+                allCalls.push(orga.deleteRepo({ name:`${r.name}-front`}));
+                allCalls.push(orga.deleteRepo({ name:`${r.name}-back`}));
             })
-            */
+
         });
 
     return Promise.all(allCalls);
