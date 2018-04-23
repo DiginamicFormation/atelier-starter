@@ -1,5 +1,3 @@
-const {gh, githubUser, config} = require('./issues');
-
 const actionRepo =(action, gh, githubUser, config) => {
 
     const allCalls = [];
