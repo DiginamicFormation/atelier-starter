@@ -28,7 +28,7 @@ exports.deleteRepos = (gh, githubUser, config) => {
         .then(reposToDelete => {
             reposToDelete.forEach(r => {
                 console.log('** Suppression du dépôt', r.name)
-                allCalls.push(r.deleteRepo());
+                allCalls.push(gh.getRepo(githubUser, r.name).deleteRepo());
             })
 
         });
