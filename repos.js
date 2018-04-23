@@ -1,4 +1,4 @@
-const actionRepo =(action, gh, githubUser, config) => {
+const actionRepo =(actionFn, gh, githubUser, config) => {
 
     const allCalls = [];
 
@@ -8,11 +8,8 @@ const actionRepo =(action, gh, githubUser, config) => {
 
         const orga = gh.getOrganization(githubUser);
 
-        // debug
-        console.log('DEBUG','orga', orga);
-
-        allCalls.push(orga[`${action}`]({ name:`${repoName}-front`}));
-        allCalls.push(orga[`${action}`]({ name:`${repoName}-back`}));
+        allCalls.push(actionFn(orga)({ name:`${repoName}-front`}));
+        allCalls.push(actionFn(orga)({ name:`${repoName}-back`}));
     });
 
     return Promise.all(allCalls);
@@ -22,11 +19,12 @@ const actionRepo =(action, gh, githubUser, config) => {
 };
 
 exports.genRepos = (gh, githubUser, config) => {
-    return actionRepo('createRepo', gh, githubUser, config);
+    return actionRepo((orga) => orga.createRepo, gh, githubUser, config);
 };
 
 exports.deleteRepos = (gh, githubUser, config) => {
-    return actionRepo('deleteRepo', gh, githubUser, config);
+
+    return actionRepo((orga) => orga.deleteRepo, gh, githubUser, config);
 };
 
 
