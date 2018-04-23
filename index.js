@@ -30,11 +30,21 @@ const gh = new GitHub({
     token: process.env.GITHUB_TOKEN
 });
 
+/************************/
+/** ACTION RECURRENTES **
+ /***********************/
+
 // pour générer les dépôts
 //require('./repos').genRepos(gh, githubUser, config).catch(console.log);
 
-// pour supprimer des dépôts
-require('./repos').deleteRepos(gh, githubUser, config).catch(console.log);
-
 // pour générer les issues
+// ATTENTION: pour le moment, générer les issues pour un projet à la fois (variable config)
 //require('./issues').genIssues(gh, githubUser, config).catch(console.log);
+
+
+/********************/
+/** ZONE DE DANGER **
+/********************/
+
+// pour supprimer des dépôts
+// require('./repos').deleteRepos(gh, githubUser, config).catch(console.log);
