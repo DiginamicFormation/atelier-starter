@@ -14,14 +14,14 @@ console.log(hello)
  *
  */
 
-const githubUser = 'callOfDTA';
+const githubUser = 'DiginamicFormation';
 
 // Mapping
 // NOM DU DEPOT SUR GITHUB - PROJET ASSOCIE
 const config = {
-    "gestion-des-transports" : 'gestion-des-transports',
-    "gestion-des-absences" : 'gestion-des-absences',
-    "gestion-des-mission" : 'gestion-des-missions',
+    "temp1" : 'gestion-des-transports',
+  //  "gestion-des-absences" : 'gestion-des-absences',
+  //  "gestion-des-mission" : 'gestion-des-missions',
 };
 
 const GitHub = require('github-api');
@@ -47,4 +47,4 @@ const gh = new GitHub({
 /********************/
 
 // pour supprimer des dépôts
-// require('./repos').deleteRepos(gh, githubUser, config).catch(console.log);
+require('./repos').deleteRepos(gh, githubUser, config).catch(console.log);
