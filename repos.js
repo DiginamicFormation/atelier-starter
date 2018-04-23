@@ -26,7 +26,7 @@ exports.deleteRepos = (gh, githubUser, config) => {
         })
         .then(reposToDelete => {
 
-            reposToDelete.forEach(r => console.log('deleting', r.name);
+            reposToDelete.forEach(r => console.log('deleting', r.name));
 
            /* reposToDelete.forEach(r => {
                 allCalls.push(orga.deleteRepo({ name:`${r}-front`}));
