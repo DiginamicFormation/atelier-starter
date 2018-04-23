@@ -4,6 +4,7 @@ node_js:
 before_script:
   - npm install
 script:
-  - node index.js
+  - npm run repos
+  - npm run issues
 notifications:
   slack: devinstitut:xHGjwaBMNBdjKqoUBIi7ssRf#travis

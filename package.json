@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "issues" : "node issues.js",
+    "repos" : "node repos.js"
+  },
   "dependencies": {
     "github-api": "^3.0.0"
   }
