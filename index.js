@@ -20,8 +20,8 @@ const githubUser = 'javanger';
 // NOM DU DEPOT SUR GITHUB - PROJET ASSOCIE
 const config = {
  //   "gestion-des-transports" : 'gestion-des-transports',
-    "gestion-des-absences" : 'gestion-des-absences',
- //   "gestion-des-missions" : 'gestion-des-missions',
+ //   "gestion-des-absences" : 'gestion-des-absences',
+    "gestion-des-missions" : 'gestion-des-missions',
 };
 
 const GitHub = require('github-api');
