@@ -14,14 +14,14 @@ console.log(hello)
  *
  */
 
-const githubUser = 'DiginamicFormation';
+const githubUser = 'callOfDTA';
 
 // Mapping
 // NOM DU DEPOT SUR GITHUB - PROJET ASSOCIE
 const config = {
-    "temp1x" : 'gestion-des-transports',
-    // "temp2" : 'gestion-des-absences',
-    //"temp3" : 'gestion-des-missions',
+    "gestion-des-transports" : 'gestion-des-transports',
+    "gestion-des-absences" : 'gestion-des-absences',
+    "gestion-des-mission" : 'gestion-des-missions',
 };
 
 const GitHub = require('github-api');
@@ -31,10 +31,10 @@ const gh = new GitHub({
 });
 
 // pour générer les dépôts
-// require('./repos').genRepos(gh, githubUser, config).catch(console.log);
+require('./repos').genRepos(gh, githubUser, config).catch(console.log);
 
 // pour supprimer des dépôts
 //require('./repos').deleteRepos(gh, githubUser, config).catch(console.log);
 
 // pour générer les issues
-require('./issues').genIssues(gh, githubUser, config).catch(console.log);
+//require('./issues').genIssues(gh, githubUser, config).catch(console.log);
