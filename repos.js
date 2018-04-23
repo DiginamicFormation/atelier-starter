@@ -4,7 +4,7 @@ const actionRepo =(actionFn, gh, githubUser, config) => {
 
     Object.keys(config).forEach(repoName => {
 
-        console.log(`** ${action} dépôts : ${repoName}-front et ${repoName}-back`);
+        console.log(`** dépôts : ${repoName}-front et ${repoName}-back`);
 
         const orga = gh.getOrganization(githubUser);
 
