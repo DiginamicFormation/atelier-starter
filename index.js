@@ -31,7 +31,10 @@ const gh = new GitHub({
 });
 
 // pour générer les dépôts
-require('./repos').genRepos(gh, githubUser, config).catch(console.log);
+// require('./repos').genRepos(gh, githubUser, config).catch(console.log);
+
+// pour supprimer des dépôts
+require('./repos').deleteRepos(gh, githubUser, config).catch(console.log);
 
 // pour générer les issues
 // require('./repos').genRepos(gh, githubUser, config).catch(console.log);
