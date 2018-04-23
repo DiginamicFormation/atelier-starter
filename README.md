@@ -10,10 +10,12 @@
 npm i
 ```
 
-* Configurer le fichier `index.js`.
+* Configurer le fichier `config.js`.
 
-# Générer les issues
+* Personnaliser l'exécution via `.travis.yml`
 
-```
-node index.js
+```yaml
+script:
+  - npm run repos
+  - npm run issues
 ```
