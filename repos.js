@@ -14,7 +14,6 @@ exports.genRepos = (gh, githubUser, config) => {
     return Promise.all(allCalls);
 
 };
-
 exports.deleteRepos = (gh, githubUser, config) => {
 
     const allCalls = [];
