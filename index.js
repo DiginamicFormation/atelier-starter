@@ -19,7 +19,7 @@ const githubUser = 'DiginamicFormation';
 // Mapping
 // NOM DU DEPOT SUR GITHUB - PROJET ASSOCIE
 const config = {
-    "temp1" : 'gestion-des-transports',
+    "temp1x" : 'gestion-des-transports',
     // "temp2" : 'gestion-des-absences',
     //"temp3" : 'gestion-des-missions',
 };
@@ -31,10 +31,10 @@ const gh = new GitHub({
 });
 
 // pour générer les dépôts
-// require('./repos').genRepos(gh, githubUser, config).catch(console.log);
+ require('./repos').genRepos(gh, githubUser, config).catch(console.log);
 
 // pour supprimer des dépôts
-require('./repos').deleteRepos(gh, githubUser, config).catch(console.log);
+//require('./repos').deleteRepos(gh, githubUser, config).catch(console.log);
 
 // pour générer les issues
 // require('./repos').genRepos(gh, githubUser, config).catch(console.log);
