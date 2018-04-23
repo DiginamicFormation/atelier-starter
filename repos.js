@@ -4,10 +4,15 @@ const actionRepo =(action, gh, githubUser, config) => {
 
     Object.keys(config).forEach(repoName => {
 
-        console.log(`** Création dépôts : ${repoName}-front et ${repoName}-back`);
+        console.log(`** ${action} dépôts : ${repoName}-front et ${repoName}-back`);
 
-        allCalls.push(gh.getOrganization(githubUser)[action]({ name:`${repoName}-front`}));
-        allCalls.push(gh.getOrganization(githubUser)[action]({ name:`${repoName}-back`}));
+        const orga = gh.getOrganization(githubUser);
+
+        // debug
+        console.log('orga[action]', orga[action]);
+
+        allCalls.push(orga[action]({ name:`${repoName}-front`}));
+        allCalls.push(orga[action]({ name:`${repoName}-back`}));
     });
 
     return Promise.all(allCalls);
