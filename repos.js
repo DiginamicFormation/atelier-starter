@@ -18,15 +18,18 @@ exports.deleteRepos = (gh, githubUser, config) => {
 
     const allCalls = [];
 
-    Object.keys(config).forEach(repoName => {
+    const orga = gh.getOrganization(githubUser);
 
-        console.log(`** dépôts : ${repoName}-front et ${repoName}-back`);
-
-        const orga = gh.getOrganization(githubUser);
-
-        allCalls.push(orga.deleteRepo({ name:`${repoName}-front`}));
-        allCalls.push(orga.deleteRepo({ name:`${repoName}-back`}));
-    });
+    orga.getRepos()
+        .then(repositories => {
+            return repositories.filter(r => Object.keys(config).some(c => r.name.includes(c)));
+        })
+        .then(reposToDelete => {
+            reposToDelete.forEach(r => {
+                allCalls.push(orga.deleteRepo({ name:`${r}-front`}));
+                allCalls.push(orga.deleteRepo({ name:`${r}-back`}));
+            })
+        });
 
     return Promise.all(allCalls);
 
