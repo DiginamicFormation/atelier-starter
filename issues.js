@@ -1,26 +1,22 @@
-const {gh, githubUser, config} = require('./issues');
 
-/**
- * Scripting
- *
- * Génération des issues.
- *
- */
-const fs = require('fs');
+exports.genIssues = (gh, githubUser, config) => {
 
-const allCalls = [];
+    const fs = require('fs');
 
-Object.keys(config).forEach(repo => {
-    fs.readdirSync(`${config[repo]}/issues`).forEach(file => {
-        const message = fs.readFileSync(`${config[repo]}/issues/${file}`, 'utf8');
+    const allCalls = [];
 
-        const title = file.replace('.md','');
+    Object.keys(config).forEach(repo => {
+        fs.readdirSync(`${config[repo]}/issues`).forEach(file => {
+            const message = fs.readFileSync(`${config[repo]}/issues/${file}`, 'utf8');
 
-        allCalls.push(gh.getIssues(githubUser, `${repo}-front`).createIssue({
-            title : title,
-            body: message
-        }));
-    })
-});
+            const title = file.replace('.md','');
 
-Promise.all(allCalls).catch(console.log);
+            allCalls.push(gh.getIssues(githubUser, `${repo}-front`).createIssue({
+                title : title,
+                body: message
+            }));
+        })
+    });
+
+    return Promise.all(allCalls);
+};

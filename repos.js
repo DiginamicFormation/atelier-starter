@@ -1,10 +1,13 @@
 const {gh, githubUser, config} = require('./issues');
 
-const allCalls = [];
+exports.genRepos = (gh, githubUser, config) => {
+    const allCalls = [];
 
-Object.keys(repoName => {
-    allCalls.push(gh.getOrganization(githubUser).createRepo({ name:`${repoName}-front`}));
-    allCalls.push(gh.getOrganization(githubUser).createRepo({ name:`${repoName}-back`}));
-});
+    Object.keys(repoName => {
+        allCalls.push(gh.getOrganization(githubUser).createRepo({ name:`${repoName}-front`}));
+        allCalls.push(gh.getOrganization(githubUser).createRepo({ name:`${repoName}-back`}));
+    });
 
-Promise.all(allCalls).catch(console.log);
+    return Promise.all(allCalls);
+};
+
