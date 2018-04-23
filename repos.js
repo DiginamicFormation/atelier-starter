@@ -11,8 +11,8 @@ const actionRepo =(action, gh, githubUser, config) => {
         // debug
         console.log('DEBUG','orga', orga);
 
-        allCalls.push(orga[action]({ name:`${repoName}-front`}));
-        allCalls.push(orga[action]({ name:`${repoName}-back`}));
+        allCalls.push(orga[`${action}`]({ name:`${repoName}-front`}));
+        allCalls.push(orga[`${action}`]({ name:`${repoName}-back`}));
     });
 
     return Promise.all(allCalls);
