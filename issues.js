@@ -1,36 +1,21 @@
-
-const recursiveIssueInsert = (issue) =
+const fs = require('fs');
 
 exports.genIssues = (gh, githubUser, config) => {
 
-    const fs = require('fs');
-
-    const allCalls = [];
-
     const allIssues = [];
-
-    const ci = gh.getIssues(githubUser, `${repo}-front`).createIssue;
 
     Object.keys(config).forEach(repo => {
         fs.readdirSync(`${config[repo]}/issues`).forEach(file => {
-            const message = fs.readFileSync(`${config[repo]}/issues/${file}`, 'utf8');
-
+            const body = fs.readFileSync(`${config[repo]}/issues/${file}`, 'utf8');
             const title = file.replace('.md','');
 
             console.log(`** Création issue sur le dépôt ${repo}-front : ${title} `);
 
-            allIssues.push({
-                title : title,
-                body: message
-            });
-
-
+            allIssues.push(() => gh.getIssues(githubUser, `${repo}-front`).createIssue({title , body}));
         })
     });
 
-
-
-    return allIssues.reduce((is1, is2) => {
-        return ci(is1).then(() => ci(is2));
+    return allIssues.reduce((isFn1, isFn2) => {
+        return isFn1().then(() => isFn2());
     });
 };

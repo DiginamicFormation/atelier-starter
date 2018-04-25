@@ -33,7 +33,7 @@ const gh = new GitHub({
 /*****************************/
 /** GENERER ATELIER COMPLET **/
 /*****************************/
-
+/*
 const arch = require('./archetypes');
 const is = require('./issues');
 
@@ -47,6 +47,7 @@ require('./repos').genRepos(gh, githubUser, config)
         return is.genIssues(gh, githubUser, config)
     })
     .catch(console.log);
+*/
 
 /************************/
 /** ACTIONS UNITAIRES **/
@@ -68,4 +69,4 @@ require('./repos').genRepos(gh, githubUser, config)
 /********************/
 
 // pour supprimer des dépôts
-// require('./repos').deleteRepos(gh, githubUser, config).catch(console.log);
+require('./repos').deleteRepos(gh, githubUser, config).catch(console.log);
