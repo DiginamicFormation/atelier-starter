@@ -7,17 +7,17 @@ const pushArchetype = (repoUser, repoName, archetypeName) => {
 
     lg(`** Génération archetype ${archetypeName} pour le dépôt ${repoUser}/${repoName}` );
 
-    shell.rm('-rf', REPO_TEMP_DIR);
+    sh.rm('-rf', REPO_TEMP_DIR);
 
     const repoDir = `${REPO_TEMP_DIR}/${repoName}`;
 
-    shell.mkdir('-p', repoDir);
+    sh.mkdir('-p', repoDir);
 
-    shell.echo(`** Copie des sources de l'archetype vers ${repoDir}`);
-    shell.cp('-R', `archetypes/${archetypeName}`, repoDir);
+    sh.echo(`** Copie des sources de l'archetype vers ${repoDir}`);
+    sh.cp('-R', `archetypes/${archetypeName}`, repoDir);
 
-    shell.echo(`** Commit & Push Github`);
-    shell.cd(repoDir);
+    sh.echo(`** Commit & Push Github`);
+    sh.cd(repoDir);
     const gitCmds = [
         'git config user.email diginamic.github@gmail.com',
         'git config user.name diginamic',
@@ -25,7 +25,7 @@ const pushArchetype = (repoUser, repoName, archetypeName) => {
         'git commit -m "init archetype"',
         `git push --force ${PUSH_URL} master`];
 
-    gitCmds.forEach(shell.exec);
+    gitCmds.forEach(sh.exec);
 };
 
 
