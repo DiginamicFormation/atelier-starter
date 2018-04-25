@@ -19,8 +19,8 @@ const githubUser = 'DiginamicFormation';
 // Mapping
 // NOM DU DEPOT SUR GITHUB - PROJET ASSOCIE
 const config = {
-   // "gestion-des-transports" : 'gestion-des-transports',
-   // "gestion-des-absences" : 'gestion-des-absences',
+    "gestion-des-transports" : 'gestion-des-transports',
+    "gestion-des-absences" : 'gestion-des-absences',
     "gestion-des-missions" : 'gestion-des-missions',
 };
 
@@ -57,7 +57,7 @@ require('./repos').genRepos(gh, githubUser, config)
 
 // pour générer les issues
 // ATTENTION: pour le moment, générer les issues pour un projet à la fois (variable config)
-require('./issues').genIssues(gh, githubUser, config).catch(console.log);
+// require('./issues').genIssues(gh, githubUser, config).catch(console.log);
 
 // pour générer un archetype sur un dépôt
 // attention git push --force inside
@@ -69,4 +69,4 @@ require('./issues').genIssues(gh, githubUser, config).catch(console.log);
 /********************/
 
 // pour supprimer des dépôts
-// require('./repos').deleteRepos(gh, githubUser, config).catch(console.log);
+require('./repos').deleteRepos(gh, githubUser, config).catch(console.log);
