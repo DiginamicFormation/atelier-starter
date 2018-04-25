@@ -20,6 +20,7 @@ const pushArchetype = (repoUser, repoName, archetypeName) => {
     const gitCmds = [
         //'git config user.email diginamic.github@gmail.com',
         //'git config user.name diginamic',
+        `cd ${repoDir} && git init`,
         `cd ${repoDir} && git add .`,
         `cd ${repoDir} && git commit -m "init archetype"`,
         `cd ${repoDir} && git push --force ${PUSH_URL} master`];
