@@ -30,9 +30,10 @@ const gh = new GitHub({
     token: process.env.GITHUB_TOKEN
 });
 
-/*****************************/
-/** GENERER ATELIER COMPLET **/
-/*****************************/
+/**********************************/
+/** GENERER ATELIER COMPLET      **/
+/** EFFECTUER 1 PROJET A LA FOIS **/
+/**********************************/
 
 const arch = require('./archetypes');
 const is = require('./issues');
@@ -43,9 +44,7 @@ require('./repos').genRepos(gh, githubUser, config)
         console.log(data);
         arch.push(githubUser, config);
     })
-    .then(() => {
-        return is.genIssues(gh, githubUser, config)
-    })
+    .then(is.genIssues(gh, githubUser, config))
     .catch(console.log);
 
 /************************/
@@ -68,4 +67,4 @@ require('./repos').genRepos(gh, githubUser, config)
 /********************/
 
 // pour supprimer des dépôts
-//require('./repos').deleteRepos(gh, githubUser, config).catch(console.log);
+require('./repos').deleteRepos(gh, githubUser, config).catch(console.log);
