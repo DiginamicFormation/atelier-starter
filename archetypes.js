@@ -14,7 +14,7 @@ const pushArchetype = (repoUser, repoName, archetypeName) => {
     sh.mkdir('-p', repoDir);
 
     sh.echo(`** Copie des sources de l'archetype vers ${repoDir}`);
-    sh.cp('-R', `archetypes/${archetypeName}`, repoDir);
+    sh.cp('-R', `archetypes/${archetypeName}/*`, repoDir);
 
     sh.echo(`** Commit & Push Github`);
     const gitCmds = [
