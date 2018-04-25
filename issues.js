@@ -20,5 +20,5 @@ exports.genIssues = (gh, githubUser, config) => {
         })
     });
 
-    return Promise.all(allCalls);
+    return allCalls.reduce((p, fn) => p.then(fn), Promise.resolve());
 };
