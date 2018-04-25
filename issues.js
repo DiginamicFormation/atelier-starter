@@ -1,9 +1,15 @@
 
+const recursiveIssueInsert = (issue) =
+
 exports.genIssues = (gh, githubUser, config) => {
 
     const fs = require('fs');
 
     const allCalls = [];
+
+    const allIssues = [];
+
+    const ci = gh.getIssues(githubUser, `${repo}-front`).createIssue;
 
     Object.keys(config).forEach(repo => {
         fs.readdirSync(`${config[repo]}/issues`).forEach(file => {
@@ -13,12 +19,18 @@ exports.genIssues = (gh, githubUser, config) => {
 
             console.log(`** Création issue sur le dépôt ${repo}-front : ${title} `);
 
-            allCalls.push(gh.getIssues(githubUser, `${repo}-front`).createIssue({
+            allIssues.push({
                 title : title,
                 body: message
-            }));
+            });
+
+
         })
     });
 
-    return allCalls.reduce((p, fn) => p.then(fn), Promise.resolve());
+
+
+    return allIssues.reduce((is1, is2) => {
+        return ci(is1).then(() => ci(is2));
+    });
 };
