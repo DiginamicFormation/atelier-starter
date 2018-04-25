@@ -11,7 +11,7 @@ exports.genIssues = (gh, githubUser, config) => {
             const title = file.replace('.md','');
 
 
-            repoIssues.push(function() {
+            repoIssues.push(() => {
                 console.log(`** Création issue sur le dépôt ${repo}-front : ${title} `);
                 return gh.getIssues(githubUser, `${repo}-front`).createIssue({title , body})
             });
@@ -19,10 +19,7 @@ exports.genIssues = (gh, githubUser, config) => {
 
         });
 
-        const promiseRepo$ =  repoIssues.reduce((isFn1, isFn2) => {
-            console.log('isFn1', isFn1, 'isFn2', isFn2)
-            return isFn1().then(() => isFn2());
-        });
+        const promiseRepo$ =  repoIssues.reduce((isFn1, isFn2) => () => isFn1().then(() => isFn2()));
         allPromiseIssues.push(promiseRepo$);
 
     });
