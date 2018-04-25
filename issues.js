@@ -19,10 +19,7 @@ exports.genIssues = (gh, githubUser, config) => {
 
         });
 
-        const promiseRepo$ =  repoIssues.reduce((isFn1, isFn2) => {
-            console.log("isFn1", isFn1, "isFn2", isFn2);
-            return () => isFn1.then(() => isFn2());
-        }, Promise.resolve());
+        const promiseRepo$ =  repoIssues.reduce((isFn1, isFn2) => isFn1.then(() => isFn2()), Promise.resolve());
         allPromiseIssues.push(promiseRepo$);
 
     });
