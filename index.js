@@ -33,7 +33,7 @@ const gh = new GitHub({
 /*****************************/
 /** GENERER ATELIER COMPLET **/
 /*****************************/
-
+/*
 const arch = require('./archetypes');
 const is = require('./issues');
 
@@ -47,7 +47,7 @@ require('./repos').genRepos(gh, githubUser, config)
         return is.genIssues(gh, githubUser, config)
     })
     .catch(console.log);
-
+*/
 
 /************************/
 /** ACTIONS UNITAIRES **/
@@ -57,7 +57,7 @@ require('./repos').genRepos(gh, githubUser, config)
 
 // pour générer les issues
 // ATTENTION: pour le moment, générer les issues pour un projet à la fois (variable config)
-//require('./issues').genIssues(gh, githubUser, config).catch(console.log);
+require('./issues').genIssues(gh, githubUser, config).catch(console.log);
 
 // pour générer un archetype sur un dépôt
 // attention git push --force inside
