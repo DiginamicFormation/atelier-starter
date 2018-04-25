@@ -41,6 +41,10 @@ const gh = new GitHub({
 // ATTENTION: pour le moment, générer les issues pour un projet à la fois (variable config)
 //require('./issues').genIssues(gh, githubUser, config).catch(console.log);
 
+// pour générer un archetype sur un dépôt
+// attention git push --force inside
+require('./archetypes').pushArchetype(githubUser, 'atelier-back', 'back');
+
 
 /********************/
 /** ZONE DE DANGER **
