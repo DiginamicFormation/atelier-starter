@@ -1,9 +1,12 @@
 language: node_js
 node_js:
-  - "9"
+- '9'
 before_script:
-  - npm install
+- npm install
 script:
-  - node index.js
+- node index.js
 notifications:
   slack: diginamic:nIQwPkWk2zfq2fjtzxMWhuBD#travis-atelier
+env:
+  global:
+    secure: P9rPORD2thrbdSn6UNug8aEba6x11wvXMlbkkNxH5zEgyjQcFeX2GFoKWcWkE+SNdSGDOBmvrTCkaeTqXcjlKHq80SFTq83uNNnukPuIfJViZHZfFeFZ/rBHHkrlKxv6l/N8Pk/hEKiJpLbb4344vKWH/LZrW/dEnu0r3f80ZRlICMuLSTdO41NalCKdS4F/oovxPjNU0xXSP880hTWVGC4xF09bd+vFMeVnkKcajkq1Zur+u7gRLt/ETMRfxy6G3fIi3dfxxzS3sgtykth4tDoTZ4CVFb6I8aXvNcHLBpfEl+E/IZ6ocY469xt37YjZcsBkGZ3Sc4Pr9zZMD29lohb3RzgTdXoyE9F8L56cgxR/uG0Y0vKsHpFF44jI3diyxiL2lAP8tcqw1L5ZYdNxr5sgHp0ZfiqHVDNsYaXLOwwgL2WyVwad/N50YyT2RLsY8Oji54/nXE9EdUSK4CtMQgMNzm4WcWNXQO8vMEymBugJ8y2sXrDIH/+viBkU0c8tBpwF9g5uKWsEwsAvDK+uVAiU4U0Jhg5tptmlag51ur4FnPCpoEVfyv4ui+IARhHLcRrhb0WlY26R+hQGk34qbuR4U0Ho53NoUIu08FpM9vvOhYlq2HuDmvXt1C0NYiFays0tusxMtpzQLYgO8TNXAzOOuOGnSMMUnsuUVGIo9AY=
