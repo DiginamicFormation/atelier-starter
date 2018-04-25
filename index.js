@@ -20,8 +20,8 @@ const githubUser = 'DiginamicFormation';
 // NOM DU DEPOT SUR GITHUB - PROJET ASSOCIE
 const config = {
     "gestion-des-transports" : 'gestion-des-transports',
-  //  "gestion-des-absences" : 'gestion-des-absences',
-  //  "gestion-des-mission" : 'gestion-des-missions',
+    "gestion-des-absences" : 'gestion-des-absences',
+    "gestion-des-missions" : 'gestion-des-missions',
 };
 
 const GitHub = require('github-api');
@@ -30,10 +30,20 @@ const gh = new GitHub({
     token: process.env.GITHUB_TOKEN
 });
 
-/************************/
-/** ACTION RECURRENTES **
- /***********************/
+/*****************************/
+/** GENERER ATELIER COMPLET **/
+/*****************************/
+const arch = require('./archetypes');
 
+require('./repos').genRepos(gh, githubUser, config)
+    .then(() => {
+        arch.push(githubUser, config);
+    })
+    .catch(console.log);
+
+/************************/
+/** ACTIONS UNITAIRES **/
+/***********************/
 // pour générer les dépôts
 //require('./repos').genRepos(gh, githubUser, config).catch(console.log);
 
@@ -43,7 +53,7 @@ const gh = new GitHub({
 
 // pour générer un archetype sur un dépôt
 // attention git push --force inside
-require('./archetypes').pushArchetype(githubUser, 'atelier-back', 'front');
+// require('./archetypes').pushArchetype('DiginamicFormation', 'atelier-back', 'front');
 
 
 /********************/

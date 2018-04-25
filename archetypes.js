@@ -28,5 +28,12 @@ const pushArchetype = (repoUser, repoName, archetypeName) => {
     gitCmds.forEach(sh.exec);
 };
 
+const push = (repoUser, config) => {
+    Object.keys(config).forEach(repoName => {
+        pushArchetype(repoUser, `${repoName}-front`, 'front');
+        pushArchetype(repoUser, `${repoName}-back`, 'back');
+    })
+};
 
+exports.push = push;
 exports.pushArchetype = pushArchetype;
