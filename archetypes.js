@@ -3,7 +3,7 @@ const REPO_TEMP_DIR = 'target';
 const lg = console.log;
 const pushArchetype = (repoUser, repoName, archetypeName) => {
 
-    const PUSH_URL = `https://${process.env.GH_TOKEN}@github.com:${repoUser}/${repoName}`
+    const PUSH_URL = `https://${process.env.GITHUB_TOKEN}@github.com:${repoUser}/${repoName}`
 
     lg(`** Génération archetype ${archetypeName} pour le dépôt ${repoUser}/${repoName}` );
 
