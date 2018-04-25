@@ -43,7 +43,7 @@ const gh = new GitHub({
 
 // pour générer un archetype sur un dépôt
 // attention git push --force inside
-require('./archetypes').pushArchetype(githubUser, 'atelier-back', 'back');
+require('./archetypes').pushArchetype(githubUser, 'atelier-back', 'front');
 
 
 /********************/
