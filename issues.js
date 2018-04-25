@@ -11,7 +11,7 @@ exports.genIssues = (gh, githubUser, config) => {
             const title = file.replace('.md','');
 
 
-            repoIssues.push(() => {
+            repoIssues.push(function() {
                 console.log(`** Création issue sur le dépôt ${repo}-front : ${title} `);
                 return gh.getIssues(githubUser, `${repo}-front`).createIssue({title , body})
             });
