@@ -17,13 +17,12 @@ const pushArchetype = (repoUser, repoName, archetypeName) => {
     sh.cp('-R', `archetypes/${archetypeName}`, repoDir);
 
     sh.echo(`** Commit & Push Github`);
-    sh.cd(repoDir);
     const gitCmds = [
-        'git config user.email diginamic.github@gmail.com',
-        'git config user.name diginamic',
-        'git add .',
-        'git commit -m "init archetype"',
-        `git push --force ${PUSH_URL} master`];
+        //'git config user.email diginamic.github@gmail.com',
+        //'git config user.name diginamic',
+        `cd ${repoDir} && git add .`,
+        `cd ${repoDir} && git commit -m "init archetype"`,
+        `cd ${repoDir} && git push --force ${PUSH_URL} master`];
 
     gitCmds.forEach(sh.exec);
 };
