@@ -1,8 +1,15 @@
-const hello = `
-   ********* ATELIER STARTER *********
+const cfg = require('./config');
+
+const welcome = `
+   ********************* ATELIER STARTER *********************
+   Organisation Github : ${cfg.githubOrga}
+   Dépôts : ${cfg.repositories}
+   Générer les dépôts : ${cfg.createRepository ? 'Oui' : 'Non'}
+   Générer les issues : ${cfg.generateIssues ? 'Oui' : 'Non'}
+   ***********************************************************
 `;
 
-console.log(hello)
+console.log(welcome)
 
 /**
  * CONFIGURATION
@@ -34,7 +41,7 @@ const gh = new GitHub({
 /** GENERER ATELIER COMPLET      **/
 /** EFFECTUER 1 PROJET A LA FOIS **/
 /**********************************/
-
+/*
 const arch = require('./archetypes');
 const is = require('./issues');
 
@@ -46,7 +53,7 @@ require('./repos').genRepos(gh, githubUser, config)
     })
     .then(is.genIssues(gh, githubUser, config))
     .catch(console.log);
-
+*/
 /************************/
 /** ACTIONS UNITAIRES **/
 /***********************/
@@ -67,4 +74,4 @@ require('./repos').genRepos(gh, githubUser, config)
 /********************/
 
 // pour supprimer des dépôts
-require('./repos').deleteRepos(gh, githubUser, config).catch(console.log);
+// require('./repos').deleteRepos(gh, githubUser, config).catch(console.log);
