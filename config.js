@@ -6,7 +6,7 @@ const CONFIG = {
 
     // Nom du dépôt dans l'organisation Github
     // Exemple : "gdm", "gestion-des-missions"
-    repositoryName: "gdm-1",
+    repositoryName: "gdm-2",
 
     /*
     Le nom du projet.
