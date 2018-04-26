@@ -4,7 +4,17 @@
 
 Générateur de projet d'atelier Spring / Angular.
 
-## Comment s'en servir ?
+Les projets sont générés dans 2 dépôts différents avec les suffixes : 
+* `-front` (Angular) 
+* `-back` (Spring Boot).
+
+Les sujets fonctionnelles disponibles :
+
+* [Gestion des absences](https://github.com/DiginamicFormation/atelier-starter/tree/master/gestion-des-absences/issues) au sein d'une entreprise
+* [Gestion des missions](https://github.com/DiginamicFormation/atelier-starter/tree/master/gestion-des-missions/issues) au sein d'une entreprise
+* [Gestion des transports](https://github.com/DiginamicFormation/atelier-starter/tree/master/gestion-des-transports/issues) au sein d'une entreprise
+
+# Comment s'en servir ?
 
 * Configurer le fichier [`config.js`](https://github.com/DiginamicFormation/atelier-starter/blob/master/config.js).
 
