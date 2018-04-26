@@ -3,13 +3,14 @@ const cfg = require('./config');
 const welcome = `
    ********************* ATELIER STARTER *********************
    Organisation Github : ${cfg.githubOrga}
-   Dépôts : ${cfg.repositories}
+   Nom du dépôt : ${cfg.repositoryName}
+   Nom du projet : ${cfg.projectName}
    Générer les dépôts : ${cfg.createRepository ? 'Oui' : 'Non'}
    Générer les issues : ${cfg.generateIssues ? 'Oui' : 'Non'}
    ***********************************************************
 `;
 
-console.log(welcome)
+console.log(welcome);
 
 /**
  * CONFIGURATION

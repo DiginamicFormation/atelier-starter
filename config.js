@@ -1,18 +1,21 @@
 const CONFIG = {
+
     // nom de l'organisation
     // l'utilisateur ghdiginamic doit avoir les droits suffisants sur l'organisation
     githubOrga: "DiginamicFormation",
 
-    // les dépôts concernés
-    repositories: {
-        // NOM DU DEPOT SUR GITHUB : PROJET ASSOCIE
-        //      Exemple : "gdt" : "gestion-des-transports" signifie
-        //          * qu'il y aura 2 dépôts "gdt-back" et "gdt-front"
-        //          * que les issues seront générés dans le projet "gdt-front"
-        "gestion-des-transports" : "gestion-des-transports",
-        //"gestion-des-absences" : 'gestion-des-absences',
-        //"gestion-des-missions" : 'gestion-des-missions',
-    },
+    // Nom du dépôt dans l'organisation Github
+    repositoryName: "gestion-des-transports",
+
+    /*
+    Le nom du projet.
+    Il correspond techniquement au nom d'un répertoire situé à la racine du projet
+    Les choix possibles :
+        * "gestion-des-transports"
+        * "gestion-des-absences"
+        * "gestion-des-missions"
+    */
+    projectName : "gestion-des-transports",
 
     // activation de la génération des issues pour un projet
     // les issues sont générés uniquement dans le projet "front"
