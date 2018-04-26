@@ -8,7 +8,7 @@ Les projets sont générés dans 2 dépôts différents avec les suffixes :
 * `-front` (Angular) 
 * `-back` (Spring Boot).
 
-Les sujets fonctionnelles disponibles :
+Les sujets fonctionnels disponibles :
 
 * [Gestion des absences](https://github.com/DiginamicFormation/atelier-starter/tree/master/gestion-des-absences/issues) au sein d'une entreprise
 * [Gestion des missions](https://github.com/DiginamicFormation/atelier-starter/tree/master/gestion-des-missions/issues) au sein d'une entreprise
