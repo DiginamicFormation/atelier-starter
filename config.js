@@ -2,10 +2,10 @@ const CONFIG = {
 
     // nom de l'organisation
     // l'utilisateur ghdiginamic doit avoir les droits suffisants sur l'organisation
-    githubOrga: "DiginamicFormation",
+    githubOrga: "digitemp",
 
     // Nom du dépôt dans l'organisation Github
-    repositoryName: "gestion-des-transports",
+    repositoryName: "gdt",
 
     /*
     Le nom du projet.
