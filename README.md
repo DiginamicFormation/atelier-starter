@@ -9,9 +9,11 @@ const CONFIG = {
     // l'utilisateur ghdiginamic doit avoir les droits suffisants sur l'organisation
     githubOrga: "digitemp",
 
-    // Nom du dépôt dans l'organisation Github
+    // Nom du dépôt dans l'organisation Github SANS SUFFIXE (-front ou -back)
     // Exemple : "gdm", "gestion-des-missions"
-    repositoryName: "gdm-2",
+    // Dans le cas d'une génération de dépôt, 2 dépôts sont générés : 
+    // Exemple : "gdm-front" et "gdm-back"
+    repositoryName: "gdm-3",
 
     /*
     Le nom du projet.
@@ -34,6 +36,9 @@ const CONFIG = {
     // configuration du fichier Jenkinsfile
     jenkinsfile : {
         front: {
+            // Jenkinsfile : BACKEND_PROD
+            // Url du backend de production vue par l'application front
+            // Ne pas modifier pour le Jenkins Diginamic Nantes
             backendProdUrlMapping: {
                 "gestion-des-transports": "https://transports-back.cleverapps.io",
                 "gestion-des-missions": "https://missions-back.cleverapps.io",
