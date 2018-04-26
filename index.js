@@ -23,7 +23,7 @@ const gh = new GitHub({
 
 const promise$ = cfg.createRepository ? require('./repos').genRepos(gh, cfg.githubOrga, config).then ((data) => {
     console.log(data);
-    arch.push(cfg.githubOrga, config);
+    require('./archetypes').push(cfg.githubOrga, config);
 }) : Promise.resolve();
 
 promise$.then(() => cfg.generateIssues ? require('./issues').genIssues(gh, cfg.githubOrga, config) : Promise.resolve())
