@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment {
-        GH_ORG = "JavaFritDuKentucky"
-        APP_REPO = "transports-front"
-        BACKEND_PROD = "https://transports-back.cleverapps.io"
+        GH_ORG = "____GH_ORG____"
+        APP_REPO = "____APP_REPO____"
+        BACKEND_PROD = "____BACKEND_PROD____"
     }
     stages {
         stage('install') {

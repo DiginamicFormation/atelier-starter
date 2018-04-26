@@ -1,7 +1,10 @@
 const sh = require('shelljs');
+const replace = require("replace");
 const REPO_TEMP_DIR = 'target';
 const lg = console.log;
-const pushArchetype = (repoUser, repoName, archetypeName) => {
+
+
+const pushArchetype = (repoUser, repoName, archetypeName, jenkinsfileCfg, projectName) => {
 
     const PUSH_URL = `git@github.com:${repoUser}/${repoName}`
 
@@ -13,13 +16,60 @@ const pushArchetype = (repoUser, repoName, archetypeName) => {
 
     sh.mkdir('-p', repoDir);
 
-    sh.echo(`** Copie des sources de l'archetype vers ${repoDir}`);
+    lg(`** Copie des sources de l'archetype vers ${repoDir}`);
     sh.cp('-R', `archetypes/${archetypeName}/*`, repoDir);
 
-    sh.echo(`** Commit & Push Github`);
+    lg('** mise à jour du Jenkinsfile');
+
+    if(archetypeName === 'back') {
+
+        replace({
+            regex: "____PROD_GIT____",
+            replacement: `${jenkinsfileCfg.back.jenkinsfileUrlCleverCloud[projectName]}`,
+            paths: [`${repoDir}/Jenkinsfile`],
+            recursive: true,
+            silent: true,
+        });
+
+        replace({
+            regex: "____GIT_CREDENTIAL_ID____",
+            replacement: `${jenkinsfileCfg.back.jenkinsfileGitCredentialId}`,
+            paths: [`${repoDir}/Jenkinsfile`],
+            recursive: true,
+            silent: true,
+        });
+
+    }
+
+    if(archetypeName === 'front') {
+
+        replace({
+            regex: "____GH_ORG____",
+            replacement: `${repoUser}`,
+            paths: [`${repoDir}/Jenkinsfile`],
+            recursive: true,
+            silent: true,
+        });
+
+        replace({
+            regex: "____APP_REPO____",
+            replacement: `${repoName}`,
+            paths: [`${repoDir}/Jenkinsfile`],
+            recursive: true,
+            silent: true,
+        });
+
+        replace({
+            regex: "____BACKEND_PROD____",
+            replacement: `${jenkinsfileCfg.front.backendProdUrlMapping[projectName]}`,
+            paths: [`${repoDir}/Jenkinsfile`],
+            recursive: true,
+            silent: true,
+        });
+    }
+
+    lg(`** Commit & Push Github`);
     const gitCmds = [
-        //'git config user.email diginamic.github@gmail.com',
-        //'git config user.name diginamic',
         `cd ${repoDir} && git init`,
         `cd ${repoDir} && git add .`,
         `cd ${repoDir} && git commit -m "init archetype"`,
@@ -28,10 +78,10 @@ const pushArchetype = (repoUser, repoName, archetypeName) => {
     gitCmds.forEach(sh.exec);
 };
 
-const push = (repoUser, config) => {
+const push = (repoUser, config, jenkinsfileCfg) => {
     Object.keys(config).forEach(repoName => {
-        pushArchetype(repoUser, `${repoName}-front`, 'front');
-        pushArchetype(repoUser, `${repoName}-back`, 'back');
+        pushArchetype(repoUser, `${repoName}-front`, 'front', jenkinsfileCfg, config[repoName]);
+        pushArchetype(repoUser, `${repoName}-back`, 'back', jenkinsfileCfg, config[repoName]);
     })
 };
 
