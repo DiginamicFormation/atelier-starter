@@ -5,7 +5,8 @@ const CONFIG = {
     githubOrga: "digitemp",
 
     // Nom du dépôt dans l'organisation Github
-    repositoryName: "gda",
+    // Exemple : "gdm", "gestion-des-missions"
+    repositoryName: "gdm",
 
     /*
     Le nom du projet.
@@ -15,7 +16,7 @@ const CONFIG = {
         * "gestion-des-absences"
         * "gestion-des-missions"
     */
-    projectName : "gestion-des-absences",
+    projectName : "gestion-des-missions",
 
     // activation de la génération des issues pour un projet
     // les issues sont générés uniquement dans le projet "front"
