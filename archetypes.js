@@ -17,7 +17,7 @@ const pushArchetype = (repoUser, repoName, archetypeName, jenkinsfileCfg, projec
     sh.mkdir('-p', repoDir);
 
     lg(`** Copie des sources de l'archetype vers ${repoDir}`);
-    sh.cp('-R', `archetypes/${archetypeName}/*`, repoDir);
+    sh.cp('-R', `archetypes/${archetypeName}/.`, repoDir);
 
     lg('** mise à jour du Jenkinsfile');
 
