@@ -39,6 +39,14 @@ const pushArchetype = (repoUser, repoName, archetypeName, jenkinsfileCfg, projec
             silent: true,
         });
 
+        replace({
+            regex: "____ARTIFACT_ID____",
+            replacement: `${repoName}-back`,
+            paths: [`${repoDir}/pom.xml`],
+            recursive: true,
+            silent: true,
+        });
+
     }
 
     if(archetypeName === 'front') {
