@@ -41,7 +41,7 @@ const pushArchetype = (repoUser, repoName, archetypeName, jenkinsfileCfg, projec
 
         replace({
             regex: "____ARTIFACT_ID____",
-            replacement: `${repoName}-back`,
+            replacement: `${repoName}`,
             paths: [`${repoDir}/pom.xml`],
             recursive: true,
             silent: true,
