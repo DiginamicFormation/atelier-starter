@@ -19,6 +19,7 @@ const CONFIG = {
         * "gestion-des-absences"
         * "gestion-des-missions"
     */
+    
     projectName : "gestion-des-missions",
 
     // activation de la génération des issues pour un projet
