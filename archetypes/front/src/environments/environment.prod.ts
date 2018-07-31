@@ -1,4 +1,6 @@
-export const environment = {
+import { config } from './common';
+
+export const environment = Object.assign({
   production: true,
-  apiUrl: '__BACKEND_URL__'
-};
+  baseUrl: '__BACKEND_URL__'
+}, config);

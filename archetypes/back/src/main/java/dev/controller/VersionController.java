@@ -1,30 +1,24 @@
 package dev.controller;
 
 import dev.domain.Version;
-import dev.repository.VersionRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.context.event.EventListener;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import dev.repository.VersionRepo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * WEB API : Version applicative.
+ */
 @RestController
-@CrossOrigin
 public class VersionController {
 
-    @Value("${app.version}")
-    private String appVersion;
-    @Autowired
-    private VersionRepository versionRepo;
+    private VersionRepo versionRepo;
 
-    @EventListener(ContextRefreshedEvent.class)
-    public void onStart() {
-        this.versionRepo.save(new Version(appVersion));
+    public VersionController(VersionRepo versionRepo) {
+        this.versionRepo = versionRepo;
     }
+
 
     @GetMapping("/versions")
     public List<Version> getVersion() {
