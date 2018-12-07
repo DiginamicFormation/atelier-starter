@@ -24,7 +24,7 @@ const CONFIG = {
 
     // activation de la génération des issues pour un projet
     // les issues sont générés uniquement dans le projet "front"
-    generateIssues: true,
+    generateIssues: false,
 
     // activation de la création du dépôt
     // positionner ce paramètre à true pour créer les dépôts
@@ -37,7 +37,7 @@ const CONFIG = {
             // Url du backend de production vue par l'application front
             // Ne pas modifier pour le Jenkins Diginamic Nantes
             backendProdUrlMapping: {
-                "groupe-bleu": "https://groupe-bleu.cleverapps.io",
+                "gestion-des-transports": "https://transports-back.cleverapps.io",
                 "gestion-des-missions": "https://missions-back.cleverapps.io",
                 "gestion-des-absences": "https://absences-back.cleverapps.io"
             }
