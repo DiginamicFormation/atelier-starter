@@ -3,13 +3,13 @@ const CONFIG = {
     // nom de l'organisation
     // l'utilisateur ghdiginamic doit avoir les droits suffisants sur l'organisation
     // l'organisation digitemp a été spécialement créée pour tester la configuration
-    githubOrga: "les-imhotep",
+    githubOrga: "kraken34",
 
     // Nom du dépôt dans l'organisation Github SANS SUFFIXE (-front ou -back)
     // Exemple : "gdm", "gestion-des-missions"
     // Dans le cas d'une génération de dépôt, 2 dépôts sont générés :
     // Exemple : "gdm-front" et "gdm-back"
-    repositoryName: "gestion-des-transports",
+    repositoryName: "groupe-bleu",
 
     /*
     Le nom du projet.
@@ -20,7 +20,7 @@ const CONFIG = {
         * "gestion-des-missions"
     */
     
-    projectName : "gestion-des-transports",
+    projectName : "groupe-bleu",
 
     // activation de la génération des issues pour un projet
     // les issues sont générés uniquement dans le projet "front"
@@ -37,7 +37,7 @@ const CONFIG = {
             // Url du backend de production vue par l'application front
             // Ne pas modifier pour le Jenkins Diginamic Nantes
             backendProdUrlMapping: {
-                "gestion-des-transports": "https://transports-back.cleverapps.io",
+                "groupe-bleu": "https://groupe-bleu.cleverapps.io",
                 "gestion-des-missions": "https://missions-back.cleverapps.io",
                 "gestion-des-absences": "https://absences-back.cleverapps.io"
             }
