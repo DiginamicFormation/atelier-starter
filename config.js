@@ -20,7 +20,7 @@ const CONFIG = {
         * "gestion-des-missions"
     */
     
-    projectName : "groupe-bleu",
+    projectName : "gestion-des-transports",
 
     // activation de la génération des issues pour un projet
     // les issues sont générés uniquement dans le projet "front"
