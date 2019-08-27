@@ -3,13 +3,13 @@ const CONFIG = {
     // nom de l'organisation
     // l'utilisateur ghdiginamic doit avoir les droits suffisants sur l'organisation
     // l'organisation digitemp a été spécialement créée pour tester la configuration
-    githubOrga: "javadelice",
+    githubOrga: "callOfDTA",
 
     // Nom du dépôt dans l'organisation Github SANS SUFFIXE (-front ou -back)
     // Exemple : "gdm", "gestion-des-missions"
     // Dans le cas d'une génération de dépôt, 2 dépôts sont générés :
     // Exemple : "gdm-front" et "gdm-back "
-    repositoryName: "gestion-des-transports",
+    repositoryName: "test",
 
     /*
     Le nom du projet.
