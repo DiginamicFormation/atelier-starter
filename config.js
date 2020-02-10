@@ -23,7 +23,7 @@ const CONFIG = {
     projectName : "gestion-des-missions",
 
     // activation de la génération des issues pour un projet
-    // les issues sont générés uniquement dans le projet "front" 
+    // les issues sont générés uniquement dans le projet "front"
     generateIssues: true,
 
     // activation de la création du dépôt
