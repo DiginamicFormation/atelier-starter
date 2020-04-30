@@ -9,7 +9,7 @@ const CONFIG = {
     // Exemple : "gdm", "gestion-des-missions"
     // Dans le cas d'une génération de dépôt, 2 dépôts sont générés :
     // Exemple : "gdm-front" et "gdm-back "
-    repositoryName: "groupe-2",
+    repositoryName: "transports-groupe-1",
 
     /*
     Le nom du projet.
@@ -20,7 +20,7 @@ const CONFIG = {
         * "gestion-des-missions"
     */
     
-    projectName : "gestion-des-missions",
+    projectName : "gestion-des-transports",
 
     // activation de la génération des issues pour un projet
     // les issues sont générés uniquement dans le projet "front"
