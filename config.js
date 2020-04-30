@@ -24,7 +24,7 @@ const CONFIG = {
 
     // activation de la génération des issues pour un projet
     // les issues sont générés uniquement dans le projet "front"
-    generateIssues: true,
+    generateIssues: false,
 
     // activation de la création du dépôt
     // positionner ce paramètre à true pour créer les dépôts
