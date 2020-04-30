@@ -8,3 +8,18 @@ export class BackendLink {
     Object.assign(this, params);
   }
 }
+
+export interface Link {
+  href: string;
+  templated: string;
+}
+export interface Links {
+  self: Link;
+  health: Link;
+  'health-path': Link;
+  info: string;
+}
+
+export interface Actuator {
+  _links: Links;
+}

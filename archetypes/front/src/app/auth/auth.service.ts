@@ -8,7 +8,6 @@ import {catchError, map, tap} from 'rxjs/operators';
 /**
  * Collègue anonyme.
  *
- * @type {Collegue}
  */
 const COLLEGUE_ANONYME = new Collegue({});
 
@@ -25,17 +24,15 @@ export class AuthService {
    *
    * A l'initialisation, le collègue connecté vaut 'undefined'.
    *
-   * @type {BehaviorSubject<any>}
    */
   private collegueConnecteSub: BehaviorSubject<Collegue> = new BehaviorSubject(COLLEGUE_ANONYME);
 
-  constructor(private _http: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
   /**
    * Interface Observable du collègue connecté.
    *
-   * @returns {Observable<Collegue>}
    */
   get collegueConnecteObs(): Observable<Collegue> {
     return this.collegueConnecteSub.asObservable();
@@ -46,11 +43,10 @@ export class AuthService {
    *
    * Une requête HTTP est déclenchée pour récupérer le collègue connecté s'il n'est pas en cache.
    *
-   * @returns {Observable<Collegue>}
    */
   verifierAuthentification(): Observable<Collegue> {
     return this.collegueConnecteSub.getValue().estAnonyme() ?
-            this._http.get<Collegue>(`${environment.baseUrl}${environment.apiAuthMe}`, {withCredentials: true})
+            this.http.get<Collegue>(`${environment.baseUrl}${environment.apiAuthMe}`, {withCredentials: true})
                   .pipe(
                     map(colServeur => new Collegue(colServeur)),
                     tap(col => this.collegueConnecteSub.next(col)),
@@ -64,9 +60,6 @@ export class AuthService {
    *
    * Le serveur provoque la création du cookie AUTH-TOKEN.
    *
-   * @param {string} email : email de l'utilisateur
-   * @param {string} mdp : mot de passe de l'utilisation
-   * @returns {Observable<Collegue>}
    */
   connecter(email: string, mdp: string): Observable<Collegue> {
 
@@ -76,7 +69,8 @@ export class AuthService {
       })
     };
 
-    return this._http.post(`${environment.baseUrl}${environment.apiLogin}`, new HttpParams().set('username', email).set('password', mdp), config)
+    return this.http.post(`${environment.baseUrl}${environment.apiLogin}`,
+      new HttpParams().set('username', email).set('password', mdp), config)
       .pipe(
         map(colServeur => new Collegue(colServeur)),
         tap(col => this.collegueConnecteSub.next(col) )
@@ -88,7 +82,6 @@ export class AuthService {
    *
    * Le serveur provoque la suppression du cookie AUTH-TOKEN.
    *
-   * @returns {Observable<any>}
    */
   seDeconnecter() {
 
@@ -98,7 +91,7 @@ export class AuthService {
       })
     };
 
-    return this._http.post<Collegue>(`${environment.baseUrl}${environment.apiLogout}`, null , config)
+    return this.http.post<Collegue>(`${environment.baseUrl}${environment.apiLogout}`, null , config)
       .pipe(
         tap(col => this.collegueConnecteSub.next(COLLEGUE_ANONYME))
       );
