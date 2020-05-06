@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "build": "cross-var ng build --prod --base-href https://$GH_ORG.github.io/$APP_REPO/",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "prepare-prod": "node prepare-prod.js",
+    "deploy": "cross-var ngh --no-silent --name=jenkins --email=jenkins@jenkins.io --repo=https://$GH_TOKEN@github.com/$GH_ORG/$APP_REPO.git"
   },
   "private": true,
   "dependencies": {
