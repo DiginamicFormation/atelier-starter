@@ -9,7 +9,7 @@ const CONFIG = {
     // Exemple : "gdm", "gestion-des-missions"
     // Dans le cas d'une génération de dépôt, 2 dépôts sont générés :
     // Exemple : "gdm-front" et "gdm-back "
-    repositoryName: "transports-groupe-1",
+    repositoryName: "test-1",
 
     /*
     Le nom du projet.

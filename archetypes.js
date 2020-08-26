@@ -19,6 +19,8 @@ const pushArchetype = (repoUser, repoName, archetypeName, jenkinsfileCfg, projec
     lg(`** Copie des sources de l'archetype vers ${repoDir}`);
     sh.cp('-R', `archetypes/${archetypeName}/.`, repoDir);
 
+    /* Désactivation de la mise à jour Jenkinsfile pour profil DevOps */
+    /*
     lg('** mise à jour du Jenkinsfile');
 
     if(archetypeName === 'back') {
@@ -75,6 +77,7 @@ const pushArchetype = (repoUser, repoName, archetypeName, jenkinsfileCfg, projec
             silent: true,
         });
     }
+    */
 
     lg(`** Commit & Push Github`);
     const gitCmds = [
