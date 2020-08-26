@@ -41,14 +41,6 @@ const pushArchetype = (repoUser, repoName, archetypeName, jenkinsfileCfg, projec
             silent: true,
         });
 
-        replace({
-            regex: "____ARTIFACT_ID____",
-            replacement: `${repoName}`,
-            paths: [`${repoDir}/pom.xml`],
-            recursive: true,
-            silent: true,
-        });
-
     }
 
     if(archetypeName === 'front') {
@@ -78,6 +70,19 @@ const pushArchetype = (repoUser, repoName, archetypeName, jenkinsfileCfg, projec
         });
     }
     */
+
+
+    if(archetypeName === 'back') {
+
+        replace({
+            regex: "____ARTIFACT_ID____",
+            replacement: `${repoName}`,
+            paths: [`${repoDir}/pom.xml`],
+            recursive: true,
+            silent: true,
+        });
+
+    }
 
     lg(`** Commit & Push Github`);
     const gitCmds = [
