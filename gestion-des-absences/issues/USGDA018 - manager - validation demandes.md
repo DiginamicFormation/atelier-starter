@@ -1,6 +1,6 @@
-* [ ] En tant que manager j'ai accès à la liste des demandes d'absence au statut EN_ATTENTE_VALIDATION de mes employés
+* En tant que manager j'ai accès à la liste des demandes d'absence au statut EN_ATTENTE_VALIDATION de mes employés
 
-* [ ] Le tableau des demandes de validation affichent :
+* Le tableau des demandes de validation affichent :
   * la liste des demandes réalisées par les employés de mon département au statut EN_ATTENTE_VALIDATION
 
 ![](https://github.com/DiginamicFormation/ressources-atelier/raw/master/gestion-des-absences/Validation.demandes.png)
